@@ -1,25 +1,25 @@
 <?php
 /**
- * Plugin Name: EC Gravity Form Webhooks
- * Plugin URI: 
- * Author: Evercommerce
- * Author URI: www.evercommerce.com
+ * Plugin Name: RMC Gravity Form Webhooks
+ * Plugin URI: www.rockymountaincode.com
+ * Author: Rocky Mountain Code
+ * Author URI: www.rockymountaincode.com
  * Description: This plugin sends Gravity form submission information to third party API
  * Version: 1.0
- * text-domain: ecgfw
+ * text-domain: rmcgfw
 */
 
 @require_once( __DIR__ . '/options-page.php');
 
 defined('ABSPATH') or die('No entry');
 
-//the 10 is for priority and the 2 is for how many arguments are being passed into funciton
+//the 10 is for priority and the 2 is for how many arguments are being passed into function
 add_action( 'gform_after_submission', 'third_party_send', 10, 2 );
 
 function third_party_send( $entry, $form ){
 
 	//get API URL and token from options page
-    $theme_options = get_option( 'ec_webhooks_option_name' );
+    $theme_options = get_option( 'rmc_webhooks_option_name' );
     $preURL = $theme_options['endpoint_url_0'];
     $ps_token = $theme_options['token_1'];
     rtrim($preURL, '/');
